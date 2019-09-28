@@ -75,8 +75,8 @@ a {
 
       const Events = ({events}) =>{
         return (
-          <button> Create </button>
           <div>
+          <button> Create </button>
             <ul>
               {
                 events.map(event =>
@@ -108,9 +108,9 @@ a {
       };
 
 
-      const createEvent = async (thing)=> {
+      const createEvent = async (event)=> {
         const created = (await axios.post('/api/event', event)).data;
-        store.dispatch( type: 'CREATE_EVENT', event: created)
+        store.dispatch({ type: 'CREATE_EVENT', event: created })
       };
       ​
 
