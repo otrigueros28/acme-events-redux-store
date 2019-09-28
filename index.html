@@ -50,6 +50,26 @@ a {
         return Connected;
       }
 
+      const Nav = ({events}) => {
+        return (
+
+        )
+      };
+
+
+      const Events = ({events}) =>{
+        return (
+          <button> Create </button>
+          <div>
+            <ul>
+              {
+                events.map(event =>
+                <li>{event.name} - {event.date}</li>)
+              }
+            </ul>
+          </div>
+        );
+      }
 
       const {createStore, combineReducers} = Redux;
       const { HashRouter, Link, Route } = ReactRouterDOM;
