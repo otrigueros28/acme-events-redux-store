@@ -51,8 +51,24 @@ a {
       }
 
       const Nav = ({events}) => {
+        const links = [
+          { text: 'EVENTS', to: '/events', count: events.length },
+          { text: 'HOME', to: '/home' }
+        ]
         return (
+          <nav>
+            {
+              links.map( link => map)
+            }
+          </nav>
+        )
+      };
 
+      const Home = ({events}) => {
+        return (
+          <div>
+            <p> You've got {events.length} events! </p>
+          </div>
         )
       };
 
@@ -105,9 +121,9 @@ a {
         render(){
           return(
             <HashRouter>
-              <H1> ACME Event Planner with Redux</H1>
-              <Route component = {Nav} />
-              <Route path = '/' component = {Home} exact />
+              <H1>ACME Event Planner with Redux</H1>
+              <Route component = {connect(Nav)} />
+              <Route path = '/' component = {connect(Home)} exact />
               <Route path = '/events' component = {connect(Events)} />
             </HashRouter>
           )
