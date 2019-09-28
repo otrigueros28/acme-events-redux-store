@@ -99,7 +99,7 @@ a {
           }
           return state;
         }
-      })
+      });
 
       const store = createStore(reducer);
 
@@ -108,13 +108,13 @@ a {
       };
 
 
-      const createEvent = async (event)=> {
+      const createEvent = async ({events}) => {
         const created = (await axios.post('/api/event', event)).data;
-        store.dispatch({ type: 'CREATE_EVENT', event: created })
+        store.dispatch({ type: 'CREATE_EVENT', event: created });
       };
       ​
 
-      Class App extends React.Component {
+      class App extends React.Component {
         componentDidMount(){
           fetchEvents();
         }
@@ -128,7 +128,7 @@ a {
             </HashRouter>
           )
         }
-      }
+      };
 
 ReactDOM.render(<App />, document.querySelector('#root'));
 
